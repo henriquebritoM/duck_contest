@@ -1,6 +1,6 @@
 services:
   backend:
-    image: ./duck_fight/dockerimg
+    image: ./duck_fight/dockerfile
     container_name: backend
     restart: always
     depends_on:
@@ -17,8 +17,6 @@ services:
     volumes:
       - "./mariadb:/var/lib/mysql/"
       - "./init.sql:/docker-entrypoint-initdb.d/init.sql:ro"
-    ports:
-      - 3306:3306
 
 volumes:
   mariadb:
