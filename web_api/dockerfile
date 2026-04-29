@@ -26,6 +26,7 @@ FROM alpine:3.23 AS release
 
 WORKDIR /app
 
+# Copies the binary from the previous stage
 COPY --from=builder /app/target/release/web_api /usr/local/bin/
 
 EXPOSE 9000
