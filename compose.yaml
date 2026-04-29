@@ -1,6 +1,8 @@
 services:
   backend:
-    image: ./duck_fight/dockerfile
+    build: 
+      context: ./web_api/
+      dockerfile: dockerfile
     container_name: backend
     restart: always
     depends_on:

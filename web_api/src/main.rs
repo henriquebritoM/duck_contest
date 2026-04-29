@@ -1,5 +1,5 @@
-mod endpoints;
-mod structs;
+//mod endpoints;
+//mod structs;
 
 #[tokio::main]
 async fn main() {
