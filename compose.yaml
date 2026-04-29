@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: ./duck_fight/dockerimg
+    container_name: backend
+    restart: always
+    depends_on:
+      - db
+  db:
+    image: mariadb:latest
+    container_name: db
+    restart: always
+    environment:
+      MARIADB_DATABASE: duckdb
+      MARIADB_USER: user
+      MARIADB_PASSWORD: mariadbPW
+      MARIADB_ROOT_PASSWORD: mariadbrootPW
+    volumes:
+      - "./mariadb:/var/lib/mysql/"
+      - "./init.sql:/docker-entrypoint-initdb.d/init.sql:ro"
+    ports:
+      - 3306:3306
+
+volumes:
+  mariadb:
